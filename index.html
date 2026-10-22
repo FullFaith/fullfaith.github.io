@@ -287,6 +287,16 @@ td:first-child{font-size:1.18rem}td{padding:24px 12px 24px 0}
 @keyframes nudge{30%{border-color:var(--ice);box-shadow:0 0 44px rgba(232,165,93,.28)}}
 h1 small.under{display:block;font-size:.13em;font-weight:500;letter-spacing:.55em;margin:.7em 0 0 .2em;opacity:.85}
 @media(max-width:620px){.story p{font-size:1.15rem}.story p:first-child{font-size:1.3rem}}
+/* polish: tagline, no section labels, one-row phone nav, bigger tap areas */
+.tag{font:300 clamp(1rem,2.4vw,1.3rem)/1.5 Lexend,Arial,sans-serif;color:var(--muted);margin:-24px 0 40px;max-width:30em}
+.view:not(.home) .wrap::before{display:none}
+@media(max-width:620px){
+header .wrap{min-height:0;padding-top:6px;padding-bottom:0;gap:0}
+nav{flex-wrap:nowrap;overflow-x:auto;width:calc(100% + 48px);margin:0 -24px;padding:0 24px;scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+nav::-webkit-scrollbar{display:none}
+nav a{white-space:nowrap;flex:none}
+}
+@media(max-width:620px),(pointer:coarse){.foot .r a{padding:12px 0}.foot .r .fl{gap:6px}.foot .r .fl a{padding:12px 8px 12px 0}.mail{display:inline-block;padding:10px 0}}
 </style>
 </head>
 <body>
@@ -300,7 +310,7 @@ h1 small.under{display:block;font-size:.13em;font-weight:500;letter-spacing:.55e
 <section id="home" class="view home"><div class="hero"><div class="vf"></div><div class="hud" aria-hidden="true"><span><b></b>REC <span id="tc">00:00:00:00</span></span><span>24 FPS &nbsp; 4K</span></div><div class="in">
 <div class="pre" id="pre"></div>
 <h1 id="big" class="lit" aria-label="FullFaith">FULLFAITH</h1>
-<p class="sr">FullFaith is an Estonian nonprofit video production team. We make social reels, event videos, promos and music videos. Our work is free for churches, Christian events and Christian projects, and paid for everyone else. We are based in Estonia, film in Tallinn, Valga, Tõrva and Lootuse küla, and are open to projects anywhere in the world.</p><p class="sr" lang="et">FullFaith on Eesti mittetulundusühing, mis pakub tasuta videoproduktsiooni kirikutele, kristlikele üritustele ja projektidele. Teistele teeme tasulisi filmitöid. Tegutseme Tallinnas, Valgas, Tõrvas ja Lootuse külas ning töötame meeleldi kõikjal maailmas.</p>
+<p class="tag">Christian film studio. Free for churches, Christian events and Christian projects.</p><p class="sr" lang="et">FullFaith on Eesti mittetulundusühing, mis pakub tasuta videoproduktsiooni kirikutele, kristlikele üritustele ja projektidele. Teistele teeme tasulisi filmitöid. Tegutseme Tallinnas, Valgas, Tõrvas ja Lootuse külas ning töötame meeleldi kõikjal maailmas.</p>
 <div class="cta"><a class="btn play" href="#work">See our work</a><a class="btn ghost" href="#contact">Start a project</a></div>
 </div></div></section>
 
@@ -351,7 +361,7 @@ h1 small.under{display:block;font-size:.13em;font-weight:500;letter-spacing:.55e
 
 <section id="give" class="view"><div class="wrap" data-k="Give">
 <h2>Help keep our work free.</h2>
-<p class="lead">Your gift keeps our work free for churches, Christian events and Christian projects.</p>
+<p class="lead">Free work still has costs. Your gift covers them.</p>
 <div class="uses"><p class="eyebrow2">Where your gift goes</p><ul><li>Upgrading and maintaining our tech</li><li>Work hours for paperwork, filming and editing</li><li>Transport to a shoot, when needed</li></ul></div>
 <div class="give">
 <div class="gcard">
@@ -376,13 +386,13 @@ h1 small.under{display:block;font-size:.13em;font-weight:500;letter-spacing:.55e
 
 <section id="partners" class="view"><div class="wrap pt" data-k="Work with us">
 <h2>Partner with us</h2>
-<p class="lead">We don't have partners yet, and we would love our first ones. If your company wants to stand behind free Christian video work in the community, let's talk.</p>
+<p class="lead">Be one of our first partners and help keep Christian video work free.</p>
 <div class="grid">
-<div class="card"><h3>Equipment</h3><p>Cameras, lights, audio gear, editing computers and storage. Used or older gear is welcome. Better tools lift every free project we make.</p></div>
-<div class="card"><h3>Funding</h3><p>Help cover the costs of keeping our work free, like upgrades, transport and props.</p></div>
-<div class="card"><h3>A place on our site</h3><p>Your name or logo on our website, with a line about what you gave, so people can see who helped.</p></div>
+<div class="card"><h3>Equipment</h3><p>Cameras, lights, audio and editing gear. Used is welcome.</p></div>
+<div class="card"><h3>Funding</h3><p>Covers upgrades, transport and props for free projects.</p></div>
+<div class="card"><h3>A place on our site</h3><p>Your name or logo on our site, so people can see who helped.</p></div>
 </div>
-<div class="uses"><p class="eyebrow2">Who we'd love to hear from</p><ul><li>Companies that make tech</li><li>Companies that work with tech</li><li>Businesses led by Christians, or that want to support Christianity</li></ul></div>
+<div class="uses"><p class="eyebrow2">Who we'd love to hear from</p><ul><li>Tech and equipment companies</li><li>Businesses led by Christians, or that want to support Christianity</li></ul></div>
 <p class="fine">FullFaith MTÜ is a registered nonprofit in Estonia, registry code 80677142.</p>
 <div class="cta pcta"><a class="btn" href="mailto:fullfaithproduction@gmail.com?subject=Partnering%20with%20FullFaith">Contact us about partnering</a></div>
 <p class="fine">Prefer to give as an individual? See <a href="#give">Give</a>.</p>
@@ -580,11 +590,12 @@ box.hidden=false})();
 function next(){if(k>=ex.length)return;var im=new Image();im.onload=function(){box.className='photo cn has';box.innerHTML='';box.appendChild(im)};im.onerror=next;im.alt='The FullFaith team';im.src='photos/team.'+ex[k++]}
 next()})();
 
+var TITLES={home:'FullFaith | Christian film studio',work:'Our work | FullFaith',services:'Services | FullFaith',about:'About us | FullFaith',give:'Give | FullFaith',partners:'Partner with us | FullFaith',privacy:'Privacy and cookies | FullFaith',terms:'Terms | FullFaith',contact:'Contact | FullFaith'};
 var views=document.querySelectorAll('.view'),links=document.querySelectorAll('nav a');
 function show(x){var id=typeof x==='string'?x:(location.hash||'#home').slice(1);if(id==='support')id='give';if(!document.getElementById(id))id='home';
 views.forEach(function(v){v.classList.toggle('on',v.id===id)});
 links.forEach(function(a){if(a.getAttribute('href')==='#'+id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-document.body.classList.toggle('sub',id!=='home');window.scrollTo(0,0);cacheLit()}
+document.body.classList.toggle('sub',id!=='home');document.title=TITLES[id]||TITLES.home;(function(){var n=document.querySelector('nav'),c=n.querySelector('[aria-current]');if(c&&n.scrollWidth>n.clientWidth)n.scrollLeft=c.getBoundingClientRect().left-n.getBoundingClientRect().left+n.scrollLeft-(n.clientWidth-c.offsetWidth)/2})();window.scrollTo(0,0);cacheLit()}
 window.addEventListener('hashchange',show);
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);
 if(!document.getElementById(id))return;e.preventDefault();try{if(location.hash!=='#'+id)location.hash=id}catch(_){}show(id)});
