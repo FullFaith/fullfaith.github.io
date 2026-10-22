@@ -520,7 +520,6 @@ setTimeout(function(){big.innerHTML=BIG[11]},2500)})(L[i]);
 var lits=[],measure=function(){};function cacheLit(){lits=[].slice.call(document.querySelectorAll('.view.on .lit,.view.on .card,.view.on .bank,.view.on .free,.view.on .socials a,.view.on .vid,.view.on .more')).map(function(el){return{el:el,lit:el.classList.contains('lit'),l:0,t:0,w:0,h:0}});measure()}
 
 var VIDEOS=[{id:'ji3WDWdXO7M'},{id:'Ggp6rOvbjsk'},{id:'i9i2gl2ln28',short:1}];
-var REPO='fullfaith/fullfaith.github.io';
 var vg=document.getElementById('g-vid');
 VIDEOS.forEach(function(v,n){var d=document.createElement('div'),b=document.createElement('button');
 b.className='vid cn';b.setAttribute('aria-label','Play video '+(n+1));
@@ -535,15 +534,14 @@ var lbx=document.createElement('div');lbx.className='lb';lbx.innerHTML='<img alt
 lbx.onclick=function(){lbx.classList.remove('on')};
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lbx.classList.remove('on')});
 var loaded={};
-function gallery(id,folder){if(loaded[id])return;loaded[id]=1;var el=document.getElementById(id);
-fetch('https://api.github.com/repos/'+REPO+'/contents/'+folder).then(function(r){return r.ok?r.json():[]}).then(function(list){
-var f=(Array.isArray(list)?list:[]).filter(function(x){return x.type==='file'&&/\.(jpe?g|png|webp|gif|avif|mp4|webm)$/i.test(x.name)}).sort(function(a,b){return a.name.localeCompare(b.name,undefined,{numeric:true})});
+var gman=null;
+function gallery(id,folder){if(loaded[id])return;loaded[id]=1;var el=document.getElementById(id),key=folder.split('/').pop();
+(gman||(gman=fetch('photos/gallery.json').then(function(r){return r.ok?r.json():{}}))).then(function(m){
+var f=m[key]||[];
 if(!f.length)return;el.innerHTML='';
-f.forEach(function(x,n){var w=document.createElement('div');w.className='cn';var u=folder+'/'+encodeURIComponent(x.name);
-var lab=folder.indexOf('behind')>-1?'Behind the scenes photo':'Photo from a scene',alt=x.name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').replace(/^\d+\s*/,'').trim();
-if(!alt||/^(img|dsc|dscn|pxl|image|photo|screenshot|vid|mvimg)?\s*\d[\d\s]*$/i.test(alt))alt=lab+' '+(n+1);
-if(/\.(mp4|webm)$/i.test(x.name))w.innerHTML='<video src="'+u+'" controls playsinline preload="metadata" aria-label="'+alt+'"></video>';
-else{w.innerHTML='<img loading="lazy" decoding="async" alt="" src="'+u+'">';w.firstChild.alt=alt;w.firstChild.tabIndex=0;w.firstChild.setAttribute('role','button');(function(im){im.onload=function(){im.classList.add('ok')};if(im.complete)im.classList.add('ok')})(w.firstChild);function openIt(){lbx.firstChild.src=u;lbx.firstChild.alt=alt;lbx.classList.add('on')}w.firstChild.addEventListener('click',openIt);w.firstChild.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openIt()}})}
+f.forEach(function(x,n){var w=document.createElement('div');w.className='cn';var u=folder+'/'+encodeURIComponent(x.f),alt=x.alt||('Photo '+(n+1));
+if(/\.(mp4|webm)$/i.test(x.f))w.innerHTML='<video src="'+u+'" controls playsinline preload="metadata" aria-label="'+alt.replace(/"/g,'&quot;')+'"></video>';
+else{w.innerHTML='<img loading="lazy" decoding="async" alt="" src="'+u+'">';w.firstChild.alt=alt;if(x.w&&x.h){w.firstChild.width=x.w;w.firstChild.height=x.h}w.firstChild.tabIndex=0;w.firstChild.setAttribute('role','button');(function(im){im.onload=function(){im.classList.add('ok')};if(im.complete)im.classList.add('ok')})(w.firstChild);function openIt(){lbx.firstChild.src=u;lbx.firstChild.alt=alt;lbx.classList.add('on')}w.firstChild.addEventListener('click',openIt);w.firstChild.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openIt()}})}
 el.appendChild(w)})}).catch(function(){})}
 
 /* team members: add or edit people here. Leave the list empty and the section stays hidden.
