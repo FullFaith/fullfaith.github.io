@@ -288,7 +288,8 @@ td:first-child{font-size:1.18rem}td{padding:24px 12px 24px 0}
 h1 small.under{display:block;font-size:.13em;font-weight:500;letter-spacing:.55em;margin:.7em 0 0 .2em;opacity:.85}
 @media(max-width:620px){.story p{font-size:1.15rem}.story p:first-child{font-size:1.3rem}}
 /* polish: tagline, no section labels, one-row phone nav, bigger tap areas */
-.tag{font:300 clamp(1rem,2.4vw,1.3rem)/1.5 Lexend,Arial,sans-serif;color:var(--muted);margin:-24px 0 40px;max-width:30em}
+.tag{font:300 clamp(1rem,2.4vw,1.3rem)/1.5 Lexend,Arial,sans-serif;color:var(--muted);margin:-24px 0 40px;max-width:30em;text-wrap:balance}
+@media(min-width:821px){.tag{font-size:min(1.3rem,calc((100vw - 72px)/50));max-width:none;white-space:nowrap}}
 .view:not(.home) .wrap::before{display:none}
 @media(max-width:620px){
 header .wrap{min-height:0;padding-top:6px;padding-bottom:0;gap:0}
@@ -296,7 +297,8 @@ nav{flex-wrap:nowrap;overflow-x:auto;width:calc(100% + 48px);margin:0 -24px;padd
 nav::-webkit-scrollbar{display:none}
 nav a{white-space:nowrap;flex:none}
 }
-@media(max-width:620px),(pointer:coarse){.foot .r a{padding:12px 0}.foot .r .fl{gap:6px}.foot .r .fl a{padding:12px 8px 12px 0}.mail{display:inline-block;padding:10px 0}}
+/* big tap areas without making the footer taller: padding adds the touch area, negative margin gives the space back */
+@media(max-width:620px),(pointer:coarse){.foot .r a{padding:8px 0;margin:-8px 0}.foot .r .fl{gap:8px;margin-top:6px}.foot .r .fl a{padding:9px 8px 9px 0;margin:-9px 0}.mail{display:inline-block;padding:6px 0}}
 </style>
 </head>
 <body>
