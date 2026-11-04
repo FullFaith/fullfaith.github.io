@@ -43,12 +43,15 @@ META = {
 # Films on the Work page (also used for Google video results).
 VIDEOS = [
  {'id': 'ji3WDWdXO7M', 'name': 'Valga ühisnoorteka reklaam', 'date': '2024-12-25T06:38:30Z', 'dur': 'PT2M22S',
+  'kind': {'en': 'Youth night ad, 2024', 'et': 'Noorteõhtu reklaam, 2024'},
   'en': 'Ad for a joint youth night in Valga, made by FullFaith.',
   'et': 'Valga ühisnoorteka reklaam, tehtud FullFaithi poolt.'},
  {'id': 'Ggp6rOvbjsk', 'name': 'Joh316 - Sa Oled Siin (Ametlik Muusikavideo)', 'date': '2025-02-22T20:00:06Z', 'dur': 'PT2M48S',
+  'kind': {'en': 'Music video, 2025', 'et': 'Muusikavideo, 2025'},
   'en': 'Official music video for "Sa Oled Siin" by Joh316, made by FullFaith.',
   'et': 'Joh316 loo „Sa Oled Siin“ ametlik muusikavideo, tehtud FullFaithi poolt.'},
  {'id': 'i9i2gl2ln28', 'name': 'TCS Ameerikast ja ELU Kogudus korraldavad Noorteka!', 'date': '2024-12-26T13:09:52Z', 'dur': 'PT53S',
+  'kind': {'en': 'Youth night ad (short), 2024', 'et': 'Noorteõhtu reklaam (lühivideo), 2024'}, 'short': True,
   'en': 'Short ad for a youth night in Tallinn by TCS from America and ELU Kogudus, made by FullFaith.',
   'et': 'Lühireklaam TCS Ameerikast ja ELU Koguduse noortekale Tallinnas, tehtud FullFaithi poolt.'},
 ]
@@ -68,8 +71,20 @@ def sub(s, pattern, repl, count=1, flags=0):
     return new
 
 
+def films(lang):
+    import html as H
+    play = 'Play video: ' if lang == 'en' else 'Esita video: '
+    out = ''
+    for v in VIDEOS:
+        t = H.escape(v['name'], quote=True)
+        out += (f'<figure class="film"><button class="vid cn" type="button" data-id="{v["id"]}" data-t="{t}" aria-label="{play}{t}">'
+                f'<img src="https://i.ytimg.com/vi/{v["id"]}/hqdefault.jpg" alt="{t}" loading="lazy"{" class=\"short\"" if v.get("short") else ""}><i></i></button>'
+                f'<figcaption><a href="https://www.youtube.com/watch?v={v["id"]}" target="_blank" rel="noopener">{t}</a><span>{v["kind"][lang]}</span></figcaption></figure>')
+    return out
+
+
 def build(lang, page, tpl):
-    s = tpl
+    s = tpl.replace('<!--FILMS-->', films(lang))
     base = LANGS[lang]
     # keep only this page's section
     def keep(m):
