@@ -535,12 +535,12 @@ lbx.onclick=function(){lbx.classList.remove('on')};
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lbx.classList.remove('on')});
 var loaded={};
 function gallery(id,folder){if(loaded[id])return;loaded[id]=1;var el=document.getElementById(id);
-fetch('https://api.github.com/repos/'+REPO+'/contents/'+folder).then(function(r){return r.ok?r.json():[]}).then(function(list){
-var f=(Array.isArray(list)?list:[]).filter(function(x){return x.type==='file'&&/\.(jpe?g|png|webp|gif|avif|mp4|webm)$/i.test(x.name)}).sort(function(a,b){return a.name.localeCompare(b.name,undefined,{numeric:true})});
+fetch('photos/gallery.json').then(function(r){return r.ok?r.json():{}}).then(function(all){var list=all[folder.split('/').pop()]||[];
+var f=list.filter(function(x){return x&&x.f&&/\.(jpe?g|png|webp|gif|avif|mp4|webm)$/i.test(x.f)}).map(function(x){return {name:x.f,alt:x.alt}});
 if(!f.length)return;el.innerHTML='';
 f.forEach(function(x,n){var w=document.createElement('div');w.className='cn';var u=folder+'/'+encodeURIComponent(x.name);
 var lab=folder.indexOf('behind')>-1?'Behind the scenes photo':'Photo from a scene',alt=x.name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').replace(/^\d+\s*/,'').trim();
-if(!alt||/^(img|dsc|dscn|pxl|image|photo|screenshot|vid|mvimg)?\s*\d[\d\s]*$/i.test(alt))alt=lab+' '+(n+1);
+if(x.alt)alt=x.alt;else if(!alt||/^(img|dsc|dscn|pxl|image|photo|screenshot|vid|mvimg)?\s*\d[\d\s]*$/i.test(alt))alt=lab+' '+(n+1);
 if(/\.(mp4|webm)$/i.test(x.name))w.innerHTML='<video src="'+u+'" controls playsinline preload="metadata" aria-label="'+alt+'"></video>';
 else{w.innerHTML='<img loading="lazy" decoding="async" alt="" src="'+u+'">';w.firstChild.alt=alt;w.firstChild.tabIndex=0;w.firstChild.setAttribute('role','button');(function(im){im.onload=function(){im.classList.add('ok')};if(im.complete)im.classList.add('ok')})(w.firstChild);function openIt(){lbx.firstChild.src=u;lbx.firstChild.alt=alt;lbx.classList.add('on')}w.firstChild.addEventListener('click',openIt);w.firstChild.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openIt()}})}
 el.appendChild(w)})}).catch(function(){})}
@@ -577,9 +577,9 @@ var n=document.createElement('b');n.textContent=q.name;c.appendChild(n);
 if(q.role){var r=document.createElement('span');r.className='r';r.textContent=q.role;c.appendChild(r)}
 g.appendChild(c)});
 box.hidden=false})();
-(function(){var box=document.getElementById('team'),ex=['jpg','jpeg','png','webp'],k=0;
-function next(){if(k>=ex.length)return;var im=new Image();im.onload=function(){box.className='photo cn has';box.innerHTML='';box.appendChild(im)};im.onerror=next;im.alt='The FullFaith team';im.src='photos/team.'+ex[k++]}
-next()})();
+/* team photo: put the file in photos/ and write its name here, e.g. 'team.jpg'. Empty = no photo. */
+(function(){var TEAM_PHOTO='';var box=document.getElementById('team');if(!box||!TEAM_PHOTO)return;
+var im=new Image();im.onload=function(){box.className='photo cn has';box.innerHTML='';box.appendChild(im)};im.alt='The FullFaith team';im.src='photos/'+TEAM_PHOTO})();
 
 var views=document.querySelectorAll('.view'),links=document.querySelectorAll('nav a');
 function show(x){var id=typeof x==='string'?x:(location.hash||'#home').slice(1);if(id==='support')id='give';if(!document.getElementById(id))id='home';
