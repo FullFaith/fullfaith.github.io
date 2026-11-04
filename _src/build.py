@@ -18,25 +18,25 @@ ORDER = ['home', 'work', 'services', 'about', 'give', 'partners', 'contact', 'pr
 META = {
  'en': {
   'home': None,  # keeps the template's own head
-  'work': ('Our work | FullFaith', 'Films, behind-the-scenes photos and scenes by FullFaith, a Christian film studio in Estonia.'),
+  'work': ('Our work: films and photos | FullFaith Christian film studio', 'Films, music videos, event ads, behind-the-scenes photos and scenes by FullFaith, a Christian film studio and nonprofit in Estonia.'),
   'services': ('Video production services and prices | FullFaith', 'Social reels from €100, event videos from €300, promos from €400 and music videos from €500. Free for churches and Christian projects.'),
-  'about': ('About us | FullFaith', 'How FullFaith started: an ad for a youth night that became almost a short film. Now a registered nonprofit (MTÜ) in Estonia.'),
-  'give': ('Give | FullFaith', 'Help keep Christian video work free. Give once or monthly by card, through your Estonian bank or by bank transfer.'),
-  'partners': ('Partner with us | FullFaith', 'Companies can support free Christian video work with equipment or funding, and get a place on our site.'),
-  'contact': ('Contact | FullFaith', 'Write to FullFaith at fullfaithproduction@gmail.com. Based in Estonia, working with people anywhere in the world.'),
-  'privacy': ('Privacy and cookies | FullFaith', 'How FullFaith MTÜ handles personal data. No cookies, no analytics, no ads.'),
-  'terms': ('Terms | FullFaith', 'Terms for free and paid video work by FullFaith MTÜ.'),
+  'about': ('About us | FullFaith, Christian film studio in Estonia', 'How FullFaith started: an ad for a youth night that became almost a short film. Now a registered nonprofit (MTÜ) in Estonia.'),
+  'give': ('Give and support free Christian video | FullFaith', 'Help keep Christian video work free. Give once or monthly by card, through your Estonian bank or by bank transfer.'),
+  'partners': ('Partner with us | FullFaith Christian film studio', 'Companies can support free Christian video work in Estonia with equipment or funding, and get a place on our website.'),
+  'contact': ('Contact FullFaith | Christian film studio in Estonia', 'Write to FullFaith at fullfaithproduction@gmail.com. Based in Estonia, working with people anywhere in the world.'),
+  'privacy': ('Privacy and cookies | FullFaith MTÜ', 'How FullFaith MTÜ handles personal data from emails, gifts and paid work. No cookies, no analytics and no ads on this site.'),
+  'terms': ('Terms for video work | FullFaith MTÜ', 'Terms for free and paid video work by FullFaith MTÜ: quotes, payment, timelines, changes, ownership, music and cancelling.'),
  },
  'et': {
   'home': None,
-  'work': ('Meie tööd | FullFaith', 'FullFaithi filmid, kaadritagused fotod ja stseenid. Kristlik filmistuudio Eestis.'),
+  'work': ('Meie tööd: filmid ja fotod | FullFaith kristlik filmistuudio', 'FullFaithi filmid, muusikavideod, ürituste reklaamid, kaadritagused fotod ja stseenid. Kristlik filmistuudio ja mittetulundusühing Eestis.'),
   'services': ('Videoproduktsiooni teenused ja hinnad | FullFaith', 'Sotsiaalmeedia klipid alates 100 €, ürituste videod alates 300 €, promod alates 400 € ja muusikavideod alates 500 €. Kirikutele ja kristlikele projektidele tasuta.'),
-  'about': ('Meist | FullFaith', 'Kuidas FullFaith alguse sai: noorteõhtu reklaamist sai peaaegu lühifilm. Nüüd oleme Eestis registreeritud mittetulundusühing (MTÜ).'),
-  'give': ('Toeta | FullFaith', 'Aita hoida kristlik videotöö tasuta. Anneta ühekordselt või igakuiselt kaardiga, Eesti panga kaudu või pangaülekandega.'),
-  'partners': ('Saa meie partneriks | FullFaith', 'Ettevõtted saavad toetada tasuta kristlikku videotööd tehnika või rahaga ning saada koha meie kodulehel.'),
-  'contact': ('Kontakt | FullFaith', 'Kirjuta FullFaithile aadressil fullfaithproduction@gmail.com. Asume Eestis ja teeme koostööd inimestega üle maailma.'),
-  'privacy': ('Privaatsus ja küpsised | FullFaith', 'Kuidas FullFaith MTÜ isikuandmeid käsitleb. Küpsiseid, analüütikat ega reklaame ei ole.'),
-  'terms': ('Tingimused | FullFaith', 'FullFaith MTÜ tasuta ja tasuliste videotööde tingimused.'),
+  'about': ('Meist | FullFaith, kristlik filmistuudio Eestis', 'Kuidas FullFaith alguse sai: noorteõhtu reklaamist sai peaaegu lühifilm. Nüüd oleme Eestis registreeritud mittetulundusühing (MTÜ).'),
+  'give': ('Toeta tasuta kristlikku videotööd | FullFaith', 'Aita hoida kristlik videotöö tasuta. Anneta ühekordselt või igakuiselt kaardiga, Eesti panga kaudu või pangaülekandega.'),
+  'partners': ('Saa meie partneriks | FullFaith kristlik filmistuudio', 'Ettevõtted saavad toetada tasuta kristlikku videotööd Eestis tehnika või rahaga ning saada koha meie kodulehel.'),
+  'contact': ('Kontakt | FullFaith, kristlik filmistuudio Eestis', 'Kirjuta FullFaithile aadressil fullfaithproduction@gmail.com. Asume Eestis ja teeme koostööd inimestega üle maailma.'),
+  'privacy': ('Privaatsus ja küpsised | FullFaith MTÜ', 'Kuidas FullFaith MTÜ käsitleb kirjade, annetuste ja tasuliste tööde isikuandmeid. Sellel lehel pole küpsiseid, analüütikat ega reklaame.'),
+  'terms': ('Videotööde tingimused | FullFaith MTÜ', 'FullFaith MTÜ tasuta ja tasuliste videotööde tingimused: hinnapakkumised, maksmine, tähtajad, muudatused, omandiõigus, muusika ja tühistamine.'),
  },
 }
 
@@ -76,6 +76,8 @@ def build(lang, page, tpl):
         return m.group(0) if m.group(1) == page else ''
     s = re.sub(r'<section id="(\w+)" class="view[^"]*">.*?</section>\n?', keep, s, flags=re.S)
     assert f'<section id="{page}"' in s
+    if page != 'home':
+        s = sub(s, r'<h2>(.*?)</h2>', r'<h1 class="pt">\1</h1>')
     # hash links -> real page links
     def link(m):
         p = 'give' if m.group(1) == 'support' else m.group(1)
@@ -136,20 +138,49 @@ def build(lang, page, tpl):
     return s
 
 
+NOTFOUND = {
+ 'en': '<section id="notfound" class="view"><div class="wrap" data-k="404"><h1 class="pt">This page doesn’t exist.</h1><p class="lead">The link may be old, or the page has moved.</p><p><a class="btn" href="/">Go to the home page</a></p><p class="fine" lang="et">Seda lehte ei ole. <a href="/et/">Mine avalehele</a></p></div></section>\n',
+}
+
+
+def build_404(tpl):
+    s = re.sub(r'<section id="(\w+)" class="view[^"]*">.*?</section>\n?', '', tpl, flags=re.S)
+    s = s.replace('<main>', '<main>\n' + NOTFOUND['en'], 1)
+    s = re.sub(r'href="#(\w+)"', lambda m: f'href="{path("en", "give" if m.group(1) == "support" else m.group(1))}"', s)
+    s = sub(s, r'<title>[^<]*</title>', '<title>Page not found | FullFaith</title>')
+    s = sub(s, r'<link rel="canonical" href="[^"]*">\n?', '')
+    s = sub(s, r'<link rel="alternate" hreflang="en".*?hreflang="x-default" href="[^"]*">\n?', '', flags=re.S)
+    s = sub(s, r'<script type="application/ld\+json">.*?</script>\n?', '', flags=re.S)
+    s = s.replace('<meta name="viewport"', '<meta name="robots" content="noindex">\n<meta name="viewport"', 1)
+    s = s.replace('<body>', '<body data-page="notfound" data-base="/">', 1)
+    return s
+
+
 def main():
+    import hashlib
     today = datetime.date.today().isoformat()
+    lmf = os.path.join(ROOT, '_src', 'lastmod.json')
+    lm = json.load(open(lmf)) if os.path.exists(lmf) else {}
     for lang in LANGS:
         tpl = open(os.path.join(ROOT, '_src', lang + '.html'), encoding='utf-8').read()
         for page in ORDER:
             out = os.path.join(ROOT, path(lang, page).strip('/'), 'index.html')
             os.makedirs(os.path.dirname(out), exist_ok=True)
-            open(out, 'w', encoding='utf-8').write(build(lang, page, tpl))
+            html = build(lang, page, tpl)
+            open(out, 'w', encoding='utf-8').write(html)
+            h = hashlib.sha1(html.encode()).hexdigest()
+            k = url(lang, page)
+            if lm.get(k, {}).get('hash') != h:
+                lm[k] = {'hash': h, 'date': today}
+        if lang == 'en':
+            open(os.path.join(ROOT, '404.html'), 'w', encoding='utf-8').write(build_404(tpl))
+    json.dump(lm, open(lmf, 'w'), indent=1)
     rows = []
     for lang in LANGS:
         for page in ORDER:
             alts = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{url(l, page)}"/>' for l in LANGS)
             alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url("en", page)}"/>'
-            rows.append(f'  <url>\n    <loc>{url(lang, page)}</loc>\n    <lastmod>{today}</lastmod>{alts}\n  </url>')
+            rows.append(f'  <url>\n    <loc>{url(lang, page)}</loc>\n    <lastmod>{lm[url(lang, page)]['date']}</lastmod>{alts}\n  </url>')
     open(os.path.join(ROOT, 'sitemap.xml'), 'w').write(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
         + '\n'.join(rows) + '\n</urlset>\n')
