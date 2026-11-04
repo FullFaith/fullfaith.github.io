@@ -4,19 +4,22 @@
    "f": "on-set-1.webp",
    "alt": "Crew setting up a shot in a bedroom",
    "w": 1012,
-   "h": 1800
+   "h": 1800,
+   "alt_et": "Meeskond seab magamistoas kaadrit üles"
   },
   {
    "f": "on-set-2.webp",
    "alt": "Crew member in sunglasses working in a pink-lit room",
    "w": 1012,
-   "h": 1800
+   "h": 1800,
+   "alt_et": "Päikeseprillidega meeskonnaliige töötamas roosas valguses"
   },
   {
    "f": "on-set-3.webp",
    "alt": "Crew filming with phones in a wooden lodge",
    "w": 1350,
-   "h": 1800
+   "h": 1800,
+   "alt_et": "Meeskond filmimas telefonidega puitmajas"
   }
  ],
  "scenes": [
@@ -24,43 +27,50 @@
    "f": "scene.avif",
    "alt": "Group of people with their hands together in a circle",
    "w": 405,
-   "h": 608
+   "h": 608,
+   "alt_et": "Inimesed ringis, käed koos"
   },
   {
    "f": "scene2.avif",
    "alt": "Girl in a fur hat and heart-shaped sunglasses under pink light",
    "w": 720,
-   "h": 404
+   "h": 404,
+   "alt_et": "Karvamütsi ja südamekujuliste päikeseprillidega tüdruk roosas valguses"
   },
   {
    "f": "scene-1.webp",
    "alt": "Two people sitting close together in purple light",
    "w": 1800,
-   "h": 1013
+   "h": 1013,
+   "alt_et": "Kaks inimest istumas lähestikku lillas valguses"
   },
   {
    "f": "scene-2.webp",
    "alt": "A glowing cross on the wall behind a woman",
    "w": 1800,
-   "h": 1013
+   "h": 1013,
+   "alt_et": "Helendav rist seinal naise taga"
   },
   {
    "f": "scene-3.webp",
    "alt": "Car radio display glowing in the dark",
    "w": 1800,
-   "h": 702
+   "h": 702,
+   "alt_et": "Auto raadioekraan pimedas helendamas"
   },
   {
    "f": "scene-4.webp",
    "alt": "Man in sunglasses seen in a rear-view mirror",
    "w": 1800,
-   "h": 702
+   "h": 702,
+   "alt_et": "Päikeseprillidega mees tahavaatepeeglis"
   },
   {
    "f": "scene-5.webp",
    "alt": "People with glowing lights in front of a stone wall",
    "w": 1800,
-   "h": 702
+   "h": 702,
+   "alt_et": "Inimesed helendavate tuledega kiviseina ees"
   }
  ]
 }

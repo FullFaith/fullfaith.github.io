@@ -12,7 +12,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="geo.region" content="EE"><meta name="geo.placename" content="Estonia">
 <link rel="canonical" href="https://fullfaith.github.io/">
-<link rel="alternate" hreflang="en" href="https://fullfaith.github.io/"><link rel="alternate" hreflang="x-default" href="https://fullfaith.github.io/">
+<link rel="alternate" hreflang="en" href="https://fullfaith.github.io/"><link rel="alternate" hreflang="et" href="https://fullfaith.github.io/et/"><link rel="alternate" hreflang="x-default" href="https://fullfaith.github.io/">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
@@ -88,6 +88,12 @@ nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height
 nav a:hover{color:var(--ink)}
 nav a[aria-current="page"]{color:var(--ice)}
 nav a[aria-current="page"]::after,nav a:hover::after{transform:scaleX(1)}
+nav{margin-left:auto}
+.lang{display:flex;align-items:center;gap:0;border:1px solid rgba(232,165,93,.28);border-radius:999px;padding:2px}
+.lang a{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.08em;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:999px;transition:color .25s,background .25s;-webkit-tap-highlight-color:transparent}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current]{color:#0b0805;background:var(--ice)}
+@media(max-width:620px){.lang{order:1;margin-left:auto}nav{order:2;margin-left:0}}
 
 /* views */
 .view{display:none;padding:56px 0 96px}.view.on{display:block;flex:1;animation:fade .55s cubic-bezier(.2,.7,.2,1) backwards}
@@ -295,13 +301,14 @@ h1 small.under{display:block;font-size:.13em;font-weight:500;letter-spacing:.55e
 <i class="scratch" aria-hidden="true"></i>
 <canvas id="dust" aria-hidden="true"></canvas>
 <header><div class="wrap"><a class="brand" href="#home">FULLFAITH</a>
-<nav aria-label="Main"><a href="#home">Home</a><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#give">Give</a><a href="#partners">Partners</a><a href="#contact">Contact</a></nav></div></header>
+<nav aria-label="Main"><a href="#home">Home</a><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#give">Give</a><a href="#partners">Partners</a><a href="#contact">Contact</a></nav>
+<div class="lang" role="group" aria-label="Language"><a href="/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/et/" data-base="/et/" hreflang="et" lang="et">ET</a></div></div></header>
 
 <main>
 <section id="home" class="view home"><div class="hero"><div class="vf"></div><div class="hud" aria-hidden="true"><span><b></b>REC <span id="tc">00:00:00:00</span></span><span>24 FPS &nbsp; 4K</span></div><div class="in">
 <div class="pre" id="pre"></div>
 <h1 id="big" class="lit" aria-label="FullFaith">FULLFAITH</h1>
-<p class="sr">FullFaith is an Estonian nonprofit video production team. We make social reels, event videos, promos and music videos. Our work is free for churches, Christian events and Christian projects, and paid for everyone else. We are based in Estonia, film in Tallinn, Valga, Tõrva and Lootuse küla, and are open to projects anywhere in the world.</p><p class="sr" lang="et">FullFaith on Eesti mittetulundusühing, mis pakub tasuta videoproduktsiooni kirikutele, kristlikele üritustele ja projektidele. Teistele teeme tasulisi filmitöid. Tegutseme Tallinnas, Valgas, Tõrvas ja Lootuse külas ning töötame meeleldi kõikjal maailmas.</p>
+<p class="sr">FullFaith is an Estonian nonprofit video production team. We make social reels, event videos, promos and music videos. Our work is free for churches, Christian events and Christian projects, and paid for everyone else. We are based in Estonia, film in Tallinn, Valga, Tõrva and Lootuse küla, and are open to projects anywhere in the world.</p>
 <div class="cta"><a class="btn play" href="#work">See our work</a><a class="btn ghost" href="#contact">Start a project</a></div>
 </div></div></section>
 
@@ -535,8 +542,8 @@ lbx.onclick=function(){lbx.classList.remove('on')};
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lbx.classList.remove('on')});
 var loaded={};
 function gallery(id,folder){if(loaded[id])return;loaded[id]=1;var el=document.getElementById(id);
-fetch('photos/gallery.json').then(function(r){return r.ok?r.json():{}}).then(function(all){var list=all[folder.split('/').pop()]||[];
-var f=list.filter(function(x){return x&&x.f&&/\.(jpe?g|png|webp|gif|avif|mp4|webm)$/i.test(x.f)}).map(function(x){return {name:x.f,alt:x.alt}});
+fetch('/photos/gallery.json').then(function(r){return r.ok?r.json():{}}).then(function(all){var list=all[folder.split('/').pop()]||[];
+var f=list.filter(function(x){return x&&x.f&&/\.(jpe?g|png|webp|gif|avif|mp4|webm)$/i.test(x.f)}).map(function(x){return {name:x.f,alt:x['alt_'+document.documentElement.lang]||x.alt}});
 if(!f.length)return;el.innerHTML='';
 f.forEach(function(x,n){var w=document.createElement('div');w.className='cn';var u=folder+'/'+encodeURIComponent(x.name);
 var lab=folder.indexOf('behind')>-1?'Behind the scenes photo':'Photo from a scene',alt=x.name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').replace(/^\d+\s*/,'').trim();
@@ -579,13 +586,13 @@ g.appendChild(c)});
 box.hidden=false})();
 /* team photo: put the file in photos/ and write its name here, e.g. 'team.jpg'. Empty = no photo. */
 (function(){var TEAM_PHOTO='';var box=document.getElementById('team');if(!box||!TEAM_PHOTO)return;
-var im=new Image();im.onload=function(){box.className='photo cn has';box.innerHTML='';box.appendChild(im)};im.alt='The FullFaith team';im.src='photos/'+TEAM_PHOTO})();
+var im=new Image();im.onload=function(){box.className='photo cn has';box.innerHTML='';box.appendChild(im)};im.alt='The FullFaith team';im.src='/photos/'+TEAM_PHOTO})();
 
 var views=document.querySelectorAll('.view'),links=document.querySelectorAll('nav a');
 function show(x){var id=typeof x==='string'?x:(location.hash||'#home').slice(1);if(id==='support')id='give';if(!document.getElementById(id))id='home';
 views.forEach(function(v){v.classList.toggle('on',v.id===id)});
 links.forEach(function(a){if(a.getAttribute('href')==='#'+id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-document.body.classList.toggle('sub',id!=='home');window.scrollTo(0,0);cacheLit()}
+document.body.classList.toggle('sub',id!=='home');var sw=document.querySelector('.lang a[data-base]');if(sw)sw.href=sw.dataset.base+(id==='home'?'':'#'+id);window.scrollTo(0,0);cacheLit()}
 window.addEventListener('hashchange',show);
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);
 if(!document.getElementById(id))return;e.preventDefault();try{if(location.hash!=='#'+id)location.hash=id}catch(_){}show(id)});
@@ -593,7 +600,7 @@ show();
 
 document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){
 document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
-document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.pane)});var d=b.dataset.pane;if(d==='p-bts')gallery('g-bts','photos/behind-the-scenes');if(d==='p-sc')gallery('g-sc','photos/scenes')})});
+document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.pane)});var d=b.dataset.pane;if(d==='p-bts')gallery('g-bts','/photos/behind-the-scenes');if(d==='p-sc')gallery('g-sc','/photos/scenes')})});
 
 document.querySelectorAll('.card[data-kind]').forEach(function(c){
 var chips=c.querySelectorAll('.amounts button'),inp=c.querySelector('input'),out=c.querySelector('.say b');
