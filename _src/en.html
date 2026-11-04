@@ -93,7 +93,7 @@ nav{margin-left:auto}
 .lang a{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.08em;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:999px;transition:color .25s,background .25s;-webkit-tap-highlight-color:transparent}
 .lang a:hover{color:var(--ink)}
 .lang a[aria-current]{color:#0b0805;background:var(--ice)}
-@media(max-width:620px){.lang{order:1;margin-left:auto}nav{order:2;margin-left:0}}
+@media(max-width:900px){.lang{order:1;margin-left:auto}nav{order:2;margin-left:0}}
 
 /* views */
 .view{display:none;padding:56px 0 96px}.view.on{display:block;flex:1;animation:fade .55s cubic-bezier(.2,.7,.2,1) backwards}
@@ -330,7 +330,7 @@ nav a::after{box-shadow:none}
 .svc .still{position:sticky;top:96px;margin:6px 0 0}
 .still img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 40%}
 .still figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
-.sheet{font:400 1.02rem/1.5 "Courier Prime","Courier New",monospace;color:var(--ink);margin:36px 0 34px;border-top:1px solid var(--line);padding-top:16px}
+.sheet{font:400 1.02rem/1.5 "Courier Prime","Courier New",monospace;color:var(--ink);margin:4px 0 34px;border-top:1px solid var(--line);padding-top:16px}
 .sheet .row{display:flex;align-items:baseline;gap:10px;padding:8px 0}
 .sheet .row i{flex:1;border-bottom:1px dotted rgba(232,165,93,.35);transform:translateY(-4px);min-width:20px}
 .sheet .row small{display:block;color:var(--muted);font-size:.82rem}
@@ -338,6 +338,34 @@ nav a::after{box-shadow:none}
 .plain{max-width:34em;color:var(--muted);font-size:1.05rem;line-height:1.7;margin:0 0 16px}
 .plain b{color:var(--ink);font-weight:500}
 @media(max-width:860px){.svc{grid-template-columns:1fr;gap:0}.svc .still{position:static;margin:0 0 36px;max-width:420px}.still img{aspect-ratio:4/5}}
+
+/* round 2 */
+:root{--ink:#fff}
+h1.pt,.view:not(.home) h2,.big{color:#fff}
+.sheet .free-row{padding:4px 0 14px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.sheet .free-row span{font-size:1.12rem;line-height:1.35;color:#fff}
+.sheet .free-row em{font-size:1.25rem}
+.fnote{font:400 .82rem/1.5 "Courier Prime","Courier New",monospace;color:var(--muted);margin:-22px 0 34px}
+.reel{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:#050302;padding:30px 0;margin:6px 0 10px;border-radius:2px}
+.reel::before,.reel::after{content:"";position:absolute;left:10px;right:10px;height:9px;background:repeating-linear-gradient(90deg,#241b13 0 13px,transparent 13px 26px);border-radius:1px}
+.reel::before{top:10px}.reel::after{bottom:10px}
+.fr{position:relative;margin:0 5px;min-height:190px;padding:20px 18px 34px;background:linear-gradient(180deg,#17110c,#110d09);display:flex;flex-direction:column;justify-content:flex-end}
+.fr p{margin:0;font-size:1.08rem;line-height:1.45;color:#fff}
+.fr b{position:absolute;top:14px;left:16px;font:400 .76rem/1 "Courier Prime","Courier New",monospace;letter-spacing:.06em;color:var(--muted)}
+.fr .edge{position:absolute;right:14px;top:14px;font:400 .72rem/1 "Courier Prime","Courier New",monospace;color:#ff6a3d;display:flex;align-items:center;gap:7px}
+.fr .edge::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff6a3d;animation:rec 2s ease-in-out infinite}
+.fr.now{background:linear-gradient(180deg,#22180f,#17110b);outline:1px solid rgba(232,165,93,.45);outline-offset:-1px}
+.reel-k{font:400 .82rem/1 "Courier Prime","Courier New",monospace;color:var(--muted);margin:0 0 12px}
+@media(max-width:1000px) and (min-width:761px){.reel{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px}.reel::before{top:10px}.reel::after{bottom:10px}}
+@media(max-width:760px){.reel{grid-template-columns:1fr;padding:0 30px}
+.reel::before,.reel::after{top:10px;bottom:10px;left:auto;right:auto;width:9px;height:auto;background:repeating-linear-gradient(180deg,#241b13 0 13px,transparent 13px 26px)}
+.reel::before{left:10px}.reel::after{right:10px}
+.fr{margin:5px 0;min-height:0;padding:40px 18px 20px}}
+.gline{font:400 1rem/1.5 "Courier Prime","Courier New",monospace;color:var(--muted);margin:-14px 0 40px;max-width:none}
+.gline span{color:var(--ice);margin:0 4px}
+@media(max-width:560px){.sheet{font-size:.94rem}.sheet .row{gap:14px}.sheet .row i{display:none}.sheet .row span{flex:1;min-width:0}.sheet .free-row br{display:none}.sheet .free-row span{font-size:1.02rem}.sheet .free-row em{font-size:1.1rem}}
+.uses.low{margin:44px 0 0;padding-top:28px;border-top:1px solid var(--line)}
+.uses.low .eyebrow2{margin:0 0 12px!important}
 </style>
 </head>
 <body>
@@ -362,7 +390,7 @@ nav a::after{box-shadow:none}
 <button aria-pressed="true" data-pane="p-vid">Films</button>
 <button aria-pressed="false" data-pane="p-bts">Behind the scenes</button>
 <button aria-pressed="false" data-pane="p-sc">Scenes</button></div>
-<div class="pane on" id="p-vid"><div class="vgrid" id="g-vid"><!--FILMS--></div><p class="soon">More films coming.</p><p class="fine">Videos play from YouTube when you press play. <a href="#privacy">Privacy and cookies</a></p></div>
+<div class="pane on" id="p-vid"><div class="vgrid" id="g-vid"><!--FILMS--></div><p class="soon">More is cooking.</p><p class="fine">Videos play from YouTube when you press play. <a href="#privacy">Privacy and cookies</a></p></div>
 <div class="pane" id="p-bts"><div class="mas" id="g-bts">
 <div class="ph b w cn">On set</div><div class="ph b cn">Filming</div><div class="ph b cn">Crew</div><div class="ph b w cn">Editing</div>
 </div></div>
@@ -374,14 +402,14 @@ nav a::after{box-shadow:none}
 <section id="services" class="view"><div class="wrap" data-k="What we do">
 <h2>Services</h2>
 <div class="svc"><div>
-<div class="free cn"><p class="big"><span>Free</span> for churches, Christian events and Christian projects.</p><p class="paid">Everything else is paid.</p></div>
-<p class="fine fv">Free work is for a project, event or church that connects directly to Christianity. Not sure which side yours falls on? Just ask.</p>
 <div class="sheet">
+<div class="row free-row"><span>Churches, Christian events <br>and Christian projects</span><i></i><em>free*</em></div>
 <div class="row"><span>Social reel<small>up to 60 seconds</small></span><i></i><em>from €100</em></div>
 <div class="row"><span>Event video<small>1 to 3 minute recap</small></span><i></i><em>from €300</em></div>
 <div class="row"><span>Promo or ad<small>30 to 90 seconds</small></span><i></i><em>from €400</em></div>
 <div class="row"><span>Music video<small>shot to your track, full edit and color</small></span><i></i><em>from €500</em></div>
 </div>
+<p class="fnote">* When the work connects directly to Christianity. Not sure? Just ask.</p>
 <p class="plain">Only need one part? We also do <b>acting, filming, audio or editing</b> on their own.</p>
 <p class="plain">Tell us early: <b>2 weeks</b> before for reels, <b>4 weeks</b> for ads and events, <b>8 weeks</b> for music videos.</p>
 <p style="margin-top:30px"><a class="btn" href="#contact">Ask for a quote</a></p>
@@ -392,20 +420,15 @@ nav a::after{box-shadow:none}
 <section id="about" class="view"><div class="wrap" data-k="Our story">
 <h2>About us</h2>
 <div class="photo cn" id="team"></div>
-<div class="story">
-<p>We were asked to make a short ad for a youth night.</p>
-<p>We went all in, and made almost a short film.</p>
-<p>We loved it, so we kept going.</p>
-<p>In summer 2026, FullFaith became an official nonprofit (MTÜ) in Estonia.</p>
-</div>
+<p class="reel-k">How it started</p>
+<div class="reel"><div class="fr"><b>01</b><p>We got asked to make a short ad for a youth night.</p></div><div class="fr"><b>02</b><p>We went all in. It turned into almost a short film.</p></div><div class="fr"><b>03</b><p>We loved it, so we kept going.</p></div><div class="fr now"><b>04</b><span class=edge>Now</span><p>Summer 2026: FullFaith becomes an official nonprofit (MTÜ) in Estonia.</p></div></div>
 <div class="team" id="members"><h3>The team</h3><div class="grid" id="mgrid"><div class="card"><b>Joonas Siimeon Kažjava</b><span class="r">Co-founder, lead producer &amp; manager</span><div class="sl"><a href="https://www.instagram.com/siimeon.kazjava" target="_blank" rel="noopener">Instagram @siimeon.kazjava</a><a href="https://www.youtube.com/@giveyeeto" target="_blank" rel="noopener">YouTube @giveyeeto</a></div></div><div class="card"><b>Kaily Tamm</b><span class="r">Co-founder</span><div class="sl"><a href="https://www.instagram.com/kaily.rahutamm" target="_blank" rel="noopener">Instagram @kaily.rahutamm</a></div></div><div class="card"><b>Artur Köller</b><span class="r">Co-founder</span><div class="sl"><a href="https://www.instagram.com/artur_koller" target="_blank" rel="noopener">Instagram @artur_koller</a></div></div><div class="card"><b>Olari Rüütelmaa</b><div class="sl"><a href="https://www.instagram.com/olariruutelmaa" target="_blank" rel="noopener">Instagram @olariruutelmaa</a></div></div><div class="card"><b>Reekab Elmi</b><div class="sl"><a href="https://www.instagram.com/reekabikkagi" target="_blank" rel="noopener">Instagram @reekabikkagi</a></div></div></div></div>
 <div class="team" id="quotes" hidden><h3>What people say</h3><div class="grid" id="qgrid"></div></div>
 </div></section>
 
 <section id="give" class="view"><div class="wrap" data-k="Give">
 <h2>Help keep our work free.</h2>
-<p class="lead">Your gift keeps our work free for churches, Christian events and Christian projects.</p>
-<div class="uses"><p class="eyebrow2">Where your gift goes</p><ul><li>Upgrading and maintaining our tech</li><li>Work hours for paperwork, filming and editing</li><li>Transport to a shoot, when needed</li></ul></div>
+<p class="gline">Your gift <span>→</span> gear, editing hours, getting to the shoot.</p>
 <div class="give">
 <div class="gcard">
 <div class="seg" role="group" aria-label="How often"><button type="button" aria-pressed="true" data-kind="once">One time</button><button type="button" aria-pressed="false" data-kind="month">Monthly</button></div>
@@ -421,6 +444,7 @@ nav a::after{box-shadow:none}
 <div class="row"><span class="k">Message</span><span class="v">FullFaith support</span><button class="cp" aria-label="Copy payment message" data-copy="FullFaith support">Copy</button></div>
 <p class="muted">For monthly giving, open your bank app and set up a standing order (püsikorraldus) to this account.</p></div>
 </div>
+<div class="uses low"><p class="eyebrow2">Where your gift goes</p><ul><li>Upgrading and maintaining our tech</li><li>Work hours for paperwork, filming and editing</li><li>Transport to a shoot, when needed</li></ul></div>
 <div class="pv"><h3>Privacy and refunds</h3>
 <p>Card gifts are processed by Stripe, so FullFaith never sees or stores your card details. Stripe passes us your name, email and the gift amount. We use them only to thank you and to keep our records, and we don't sell or share them.</p>
 <p>Monthly givers can cancel any time with the "Manage or cancel your gift" link. If you gave by mistake, email <a href="mailto:fullfaithproduction@gmail.com">fullfaithproduction@gmail.com</a> and we will sort it out. Full details: <a href="#privacy">Privacy and cookies</a>.</p></div>
