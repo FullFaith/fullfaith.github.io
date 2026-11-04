@@ -11,7 +11,7 @@ Jekyll on GitHub Pages ignores folders starting with "_", so _src is not publish
 import json, os, re, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = 'https://fullfaith.github.io'
+SITE = 'https://fullfaith.ee'
 LANGS = {'en': '/', 'et': '/et/'}
 ORDER = ['home', 'work', 'services', 'about', 'give', 'partners', 'contact', 'privacy', 'terms']
 
