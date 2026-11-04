@@ -381,6 +381,21 @@ transform:rotateY(-11deg) rotateZ(.35deg);transform-origin:0 50%;backface-visibi
 .reel{transform:none;box-shadow:none;padding:0 22px;max-width:340px;grid-template-columns:1fr;-webkit-mask:linear-gradient(180deg,#000 80%,transparent);mask:linear-gradient(180deg,#000 80%,transparent)}
 .reel::before,.reel::after{top:0;bottom:0;width:9px;height:auto;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='17'%3E%3Crect x='1' y='3' width='7' height='11' rx='2' fill='%230b0805'/%3E%3C/svg%3E") repeat-y}.reel::before{left:6px}.reel::after{right:6px;left:auto}
 .fr{border:0;border-top:3px solid #1a1109;border-bottom:3px solid #1a1109;min-height:0;padding:25px 14px 12px}}
+
+/* more is cooking: film leader countdown */
+.soon{display:none}
+.leader{position:relative;aspect-ratio:16/9;background:#0d0905;border:1px solid #2c2218;border-radius:2px;overflow:hidden;display:grid;place-items:center}
+.leader::after{content:"";position:absolute;inset:0;background:linear-gradient(#241b13,#241b13) 50% 0/1px 100% no-repeat,linear-gradient(#241b13,#241b13) 0 50%/100% 1px no-repeat}
+.leader .ring{position:absolute;height:74%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(232,165,93,.5);box-shadow:inset 0 0 0 9px #0d0905,inset 0 0 0 10px rgba(232,165,93,.22);z-index:1}
+.leader .sw{position:absolute;height:74%;aspect-ratio:1;border-radius:50%;background:conic-gradient(rgba(232,165,93,.2) var(--a),transparent var(--a));animation:sweep 1s linear infinite}
+.leader .n{position:absolute;z-index:2;font:800 clamp(2.6rem,5vw,3.4rem)/1 "Bricolage Grotesque",sans-serif;color:rgba(255,255,255,.85);margin-top:-8%}
+.leader .n::after{content:"3";animation:cnt 3s steps(1) infinite}
+.leader p{position:absolute;z-index:3;left:0;right:0;bottom:9%;margin:0;text-align:center;font:500 1rem/1 "Bricolage Grotesque",sans-serif;color:#fff}
+.leader p span{background:#0d0905;padding:4px 10px}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes sweep{to{--a:360deg}}
+@keyframes cnt{0%{content:"3"}33.33%{content:"2"}66.66%{content:"1"}}
+@media(prefers-reduced-motion:reduce){.leader .sw,.leader .n::after{animation:none}}
 </style>
 </head>
 <body data-page="home" data-base="/et/">
