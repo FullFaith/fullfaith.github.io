@@ -414,7 +414,7 @@ transform:rotateY(-11deg) rotateZ(.35deg);transform-origin:0 50%;backface-visibi
 <div class="lang" role="group" aria-label="Language"><a href="/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/et/" data-base="/et/" hreflang="et" lang="et">ET</a></div></div></header>
 
 <main>
-<section id="home" class="view home"><div class="hero"><div class="vf"></div><div class="slate" aria-hidden="true"><span>Christian film studio</span><span><u class="lg-t">Free for churches, events &amp; Christian projects</u><u class="sm-t">Free for churches</u><i></i></span></div><div class="hud" aria-hidden="true"><span><b></b>REC <span id="tc">00:00:00:00</span></span><span>24 FPS &nbsp; 4K</span></div><div class="in">
+<section id="home" class="view home"><div class="hero"><div class="vf"></div><div class="slate" aria-hidden="true"><span>Christian film studio</span><span><u class="lg-t">Free for churches, events &amp; Christian projects</u><u class="sm-t">Free for churches</u><i></i></span></div><div class="hud" aria-hidden="true"><span><b></b>REC <span id="tc">00:00:00:00</span></span><span>25 FPS &nbsp; 4K</span></div><div class="in">
 <div class="pre" id="pre"></div>
 <h1 id="big" class="lit" aria-label="FullFaith">FULLFAITH</h1>
 <p class="sr">FullFaith is an Estonian nonprofit video production team. We make social reels, event videos, promos and music videos. Our work is free for churches, Christian events and Christian projects, and paid for everyone else. We are based in Estonia, film in Tallinn, Valga, Tõrva and Lootuse küla, and are open to projects anywhere in the world.</p>
@@ -622,7 +622,7 @@ p.x+=p.vx*dt*p.z;p.y+=p.vy*dt*p.z;
 if(p.y<-8)p.y=H+8;if(p.y>H+8)p.y=-8;if(p.x<-8)p.x=W+8;if(p.x>W+8)p.x=-8;
 var a=(.05+.5*lit)*p.z*(.65+.35*Math.sin(t/700+p.ph));if(a<.02)continue;
 cg.fillStyle='rgba(255,226,180,'+a.toFixed(2)+')';cg.fillRect(p.x,p.y,.8+p.z*1.4,.8+p.z*1.4)}}
-var f=Math.floor((t-t0)/1000*24);if(tc&&f!==lf){lf=f;var q=function(n){return(n<10?'0':'')+n},s3=Math.floor(f/24);tc.textContent=q(Math.floor(s3/3600))+':'+q(Math.floor(s3/60)%60)+':'+q(s3%60)+':'+q(f%24)}
+var f=Math.floor((t-t0)/1000*25);if(tc&&f!==lf){lf=f;var q=function(n){return(n<10?'0':'')+n},s3=Math.floor(f/25);tc.textContent=q(Math.floor(s3/3600))+':'+q(Math.floor(s3/60)%60)+':'+q(s3%60)+':'+q(f%25)}
 scratchTick(t)}
 function frame(t){try{step(t)}catch(e){}requestAnimationFrame(frame)}
 cacheLit();requestAnimationFrame(frame);
