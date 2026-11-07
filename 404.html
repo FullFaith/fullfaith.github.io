@@ -21,9 +21,9 @@
 <meta property="og:title" content="FullFaith: video production, free for Christian projects">
 <meta property="og:description" content="Estonian nonprofit video production. Free for churches, Christian events and Christian projects. Paid film work for everyone else.">
 <meta property="og:url" content="https://fullfaith.ee/">
-<meta property="og:image" content="https://fullfaith.ee/og.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FullFaith: free Christian video production in Estonia">
-<meta property="og:image" content="https://fullfaith.ee/fullfaith-square.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="1200"><meta property="og:image:alt" content="FullFaith: free Christian video production in Estonia">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="FullFaith: video production, free for Christian projects"><meta name="twitter:description" content="Estonian nonprofit video production. Free for churches, Christian events and Christian projects. Paid film work for everyone else."><meta name="twitter:image" content="https://fullfaith.ee/og.png"><meta name="twitter:image:alt" content="FullFaith: free Christian video production in Estonia">
+<meta property="og:image" content="https://fullfaith.ee/og-share.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FullFaith: free Christian video production in Estonia">
+<meta property="og:image" content="https://fullfaith.ee/fullfaith-logo-square.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="1200"><meta property="og:image:alt" content="FullFaith: free Christian video production in Estonia">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="FullFaith: video production, free for Christian projects"><meta name="twitter:description" content="Estonian nonprofit video production. Free for churches, Christian events and Christian projects. Paid film work for everyone else."><meta name="twitter:image" content="https://fullfaith.ee/og-share.jpg"><meta name="twitter:image:alt" content="FullFaith: free Christian video production in Estonia">
 <noscript><style>.view{display:block!important}</style></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,7 +254,7 @@ body.sub .light{opacity:.5}body.sub #dust,body.sub .streak,body.sub .leak,body.s
 .cn::after{display:none}
 .view:not(.home) .wrap::before{content:attr(data-k);width:auto;height:auto;background:none;box-shadow:none;margin:0 0 16px;color:var(--ice);font:500 .78rem/1 Lexend,sans-serif;letter-spacing:.3em;text-transform:uppercase}
 .view:not(.home) h2{color:#f4e8d6;margin-bottom:36px;max-width:14em}
-.lead{font-size:1.2rem;color:var(--muted);max-width:32em;margin:-8px 0 44px}
+.lead{font-size:1.2rem;color:var(--muted);max-width:42em;margin:-8px 0 44px}
 .card::before,.bank::before,.free::before,.more::before,.vid::before{opacity:.5}
 .socials a::before,.free::before{display:none}
 .tabs{gap:30px;border-bottom:1px solid var(--line);margin:0 0 36px}
@@ -350,7 +350,7 @@ h1.pt,.view:not(.home) h2,.big{color:#fff}
 .sheet .free-row{padding:4px 0 14px;margin-bottom:6px;border-bottom:1px solid var(--line)}
 .sheet .free-row span{font-size:1.12rem;line-height:1.35;color:#fff}
 .sheet .free-row em{font-size:1.25rem}
-.fnote{font:400 .82rem/1.5 "Courier Prime","Courier New",monospace;color:var(--muted);margin:-22px 0 34px}
+.fnote{font:400 .82rem/1.5 "Courier Prime","Courier New",monospace;color:var(--muted);margin:-22px 0 34px;max-width:none}
 .gline{font:400 1rem/1.5 "Courier Prime","Courier New",monospace;color:var(--muted);margin:-14px 0 40px;max-width:none}
 .gline span{color:var(--ice);margin:0 4px}
 .plain b,.lead b,.muted b,.pv b,.view p b{color:inherit;font-weight:500}
@@ -401,6 +401,10 @@ transform:rotateY(-11deg) rotateZ(.35deg);transform-origin:0 50%;backface-visibi
 @keyframes sweep{to{--a:360deg}}
 @keyframes cnt{0%{content:"3"}33.33%{content:"2"}66.66%{content:"1"}}
 @media(prefers-reduced-motion:reduce){.leader .sw,.leader .n::after{animation:none}}
+
+/* line breaks: tidy wrapping */
+p,li{text-wrap:pretty}h1,h2,h3,.lead{text-wrap:balance}
+@media(max-width:899px){br.sb{display:none}}
 </style>
 </head>
 <body data-page="notfound" data-base="/">
