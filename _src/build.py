@@ -24,8 +24,8 @@ META = {
   'give': ('Give and support free Christian video | FullFaith', 'Help keep Christian video work free. Give once or monthly by card, through your Estonian bank or by bank transfer.'),
   'partners': ('Partner with us | FullFaith Christian film studio', 'Companies can support free Christian video work in Estonia with equipment or funding, and get a place on our website.'),
   'contact': ('Contact FullFaith | Christian film studio in Estonia', 'Write to FullFaith at info@fullfaith.ee. Based in Estonia, working with people anywhere in the world.'),
-  'privacy': ('Privacy and cookies | FullFaith MTÜ', 'How FullFaith MTÜ handles personal data from emails, gifts and paid work. No cookies, no analytics and no ads on this site.'),
-  'terms': ('Terms for video work | FullFaith MTÜ', 'Terms for free and paid video work by FullFaith MTÜ: quotes, payment, timelines, changes, ownership, music and cancelling.'),
+  'privacy': ('Privacy and cookies | MTÜ FullFaith', 'How MTÜ FullFaith handles personal data from emails, gifts and paid work. No cookies, no analytics and no ads on this site.'),
+  'terms': ('Terms for video work | MTÜ FullFaith', 'Terms for free and paid video work by MTÜ FullFaith: quotes, payment, timelines, changes, ownership, music and cancelling.'),
  },
  'et': {
   'home': None,
@@ -35,8 +35,8 @@ META = {
   'give': ('Toeta tasuta kristlikku videotööd | FullFaith', 'Aita hoida kristlik videotöö tasuta. Anneta ühekordselt või igakuiselt kaardiga, Eesti panga kaudu või pangaülekandega.'),
   'partners': ('Saa meie partneriks | FullFaith kristlik filmistuudio', 'Ettevõtted saavad toetada tasuta kristlikku videotööd Eestis tehnika või rahaga ning saada koha meie kodulehel.'),
   'contact': ('Kontakt | FullFaith, kristlik filmistuudio Eestis', 'Kirjuta FullFaithile aadressil info@fullfaith.ee. Asume Eestis ja teeme koostööd inimestega üle maailma.'),
-  'privacy': ('Privaatsus ja küpsised | FullFaith MTÜ', 'Kuidas FullFaith MTÜ käsitleb kirjade, annetuste ja tasuliste tööde isikuandmeid. Sellel lehel pole küpsiseid, analüütikat ega reklaame.'),
-  'terms': ('Videotööde tingimused | FullFaith MTÜ', 'FullFaith MTÜ tasuta ja tasuliste videotööde tingimused: hinnapakkumised, maksmine, tähtajad, muudatused, omandiõigus, muusika ja tühistamine.'),
+  'privacy': ('Privaatsus ja küpsised | MTÜ FullFaith', 'Kuidas MTÜ FullFaith käsitleb kirjade, annetuste ja tasuliste tööde isikuandmeid. Sellel lehel pole küpsiseid, analüütikat ega reklaame.'),
+  'terms': ('Videotööde tingimused | MTÜ FullFaith', 'MTÜ FullFaith tasuta ja tasuliste videotööde tingimused: hinnapakkumised, maksmine, tähtajad, muudatused, omandiõigus, muusika ja tühistamine.'),
  },
 }
 
