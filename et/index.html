@@ -407,6 +407,43 @@ transform:rotateY(-11deg) rotateZ(.35deg);transform-origin:0 50%;backface-visibi
 /* line breaks: tidy wrapping */
 p,li{text-wrap:pretty}h1,h2,h3,.lead{text-wrap:balance}
 @media(max-width:899px){br.sb{display:none}}
+
+/* supporters (partners page) */
+.cred h1.pt,.kick{margin:0 auto 22px!important;-webkit-text-fill-color:currentColor;color:var(--ice);font:500 .78rem/1 Lexend,sans-serif;letter-spacing:.3em!important;text-transform:uppercase;max-width:none!important}
+.cred{text-align:center;padding:30px 0 10px}
+.cred .roll{position:relative;padding:44px 0 40px}
+.cred .roll::before,.cred .roll::after{content:"";position:absolute;left:50%;width:44px;height:1px;background:var(--ice);translate:-50% 0}
+.cred .roll::before{top:0}.cred .roll::after{bottom:0}
+.crew{display:grid;grid-template-columns:repeat(2,1fr);max-width:720px;margin:0 auto}
+.crew>a{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:18px;padding:10px 28px;text-decoration:none;color:var(--ink)}
+.crew>a+a{border-left:1px solid var(--line)}
+.crew .mk{height:120px;display:flex;align-items:center;justify-content:center;width:100%}
+.crew .who{font:500 .8rem/1.6 Lexend,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.crew .who b{display:block;font:600 1.1rem/1.4 "Bricolage Grotesque",sans-serif;letter-spacing:.02em;text-transform:none;color:var(--ink);margin-bottom:4px}
+.slogo{position:relative;display:block}
+.slogo i{position:absolute;inset:0;background:var(--ink);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat;transition:background-color .4s,opacity .4s}
+.sl-valga{height:112px;aspect-ratio:1556/1420}
+.sl-valga .w{--m:url(/logos/valga-wreath.svg)}.sl-valga .c{--m:url(/logos/valga-church.svg)}.sl-valga .x{--m:url(/logos/valga-windows.svg);background:#c8913f;opacity:0}
+.sl-lootus{height:72px;aspect-ratio:502.6/153;max-width:100%}
+.sl-lootus .t{--m:url(/logos/lootuse-kula-text.svg)}.sl-lootus .r{--m:url(/logos/lootuse-kula-rays.svg)}
+.crew a:hover .sl-valga .w,.crew a:focus-visible .sl-valga .w{background:#7393b5}
+.crew a:hover .sl-valga .c,.crew a:focus-visible .sl-valga .c,.crew a:hover .sl-lootus .t,.crew a:focus-visible .sl-lootus .t{background:#fff}
+.crew a:hover .sl-valga .x,.crew a:focus-visible .sl-valga .x{opacity:1}
+.crew a:hover .sl-lootus .r,.crew a:focus-visible .sl-lootus .r{background:#48c7ed}
+.quiet{margin:30px auto 0;color:var(--muted);font-size:.98rem;font-style:italic;max-width:none}
+.cred .thanks{max-width:30em;margin:26px auto 0;color:var(--muted);font-size:1.05rem}
+.join{margin:72px 0 0;padding:40px 0 0;border-top:1px solid var(--line)}
+.join .jh{font:800 clamp(1.5rem,3.4vw,2rem)/1.15 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;color:#f4e8d6;margin:0 0 10px}
+.join>p{color:var(--muted);max-width:38em;margin:0 0 26px}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:0 0 30px}
+.ways div{border-top:1px solid var(--line);padding-top:16px}
+.ways b{display:block;font:600 1.05rem "Bricolage Grotesque",sans-serif;color:var(--ice);margin:0 0 6px}
+.ways span{display:block;color:var(--muted);font-size:.95rem;line-height:1.6}
+.join .row2{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}.join .fine{margin:0}
+.pray,.praywith{border-left:2px solid var(--ice)}
+.pray{margin:34px 0 0;padding:4px 0 4px 18px;color:var(--muted);font-size:1rem;line-height:1.6;max-width:40em}.pray b{color:var(--ink);font-weight:500}
+.praywith{margin:44px 0 0;padding:6px 0 6px 22px}.praywith h3{margin:0 0 8px;font-size:1.2rem}.praywith p{color:var(--muted);font-size:1rem;line-height:1.7;max-width:36em;margin:0}
+@media(max-width:760px){.ways{grid-template-columns:1fr;gap:16px}.crew{grid-template-columns:1fr;gap:34px}.crew>a+a{border-left:0;border-top:1px solid var(--line);padding-top:34px}.crew .mk{height:100px}.sl-valga{height:100px}.sl-lootus{height:60px}}
 </style>
 </head>
 <body data-page="home" data-base="/et/">
