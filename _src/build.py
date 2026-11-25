@@ -154,7 +154,7 @@ def build(lang, page, tpl):
 
 
 NOTFOUND = {
- 'en': '<section id="notfound" class="view"><div class="wrap" data-k="404"><h1 class="pt">This page doesn’t exist.</h1><p class="lead">The link may be old, or the page has moved.</p><p><a class="btn" href="/">Go to the home page</a></p><p class="fine" lang="et">Seda lehte ei ole. <a href="/et/">Mine avalehele</a></p></div></section>\n',
+ 'en': '<section id="notfound" class="view"><div class="wrap"><div class="clap" aria-hidden="true"><span>Scene<b>404</b></span><span>Take<b>1</b></span><span>FullFaith</span></div><h1 class="pt">This shot didn’t make the cut</h1><p class="lead">The link may be old, or the page has moved.</p><p><a class="btn" href="/">Back to the home page</a></p><p class="fine" lang="et">Seda lehte ei ole. <a href="/et/">Mine avalehele</a></p></div></section>\n',
 }
 
 
